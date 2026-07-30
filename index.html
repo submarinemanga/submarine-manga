@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SUBMARINE MANGA</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#0d1117;
+    color:white;
+}
+header{
+    background:#0066ff;
+    padding:20px;
+    text-align:center;
+}
+input{
+    width:80%;
+    max-width:400px;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    margin-top:10px;
+}
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+    padding:20px;
+}
+.card{
+    background:#161b22;
+    border-radius:12px;
+    padding:15px;
+    text-align:center;
+}
+.card img{
+    width:100%;
+    border-radius:10px;
+}
+button{
+    background:#00c853;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:8px;
+    cursor:pointer;
+}
+button:hover{
+    background:#00a844;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>📚 SUBMARINE MANGA</h1>
+<p>Read Manga Online</p>
+
+<input id="search" placeholder="Search manga..."
+onkeyup="searchManga()">
+</header>
+
+<div class="grid" id="mangaList">
+
+<div class="card">
+<img src="https://placehold.co/300x420?text=One+Piece">
+<h3>One Piece</h3>
+<button onclick="alert('Reader coming soon!')">Read</button>
+</div>
+
+<div class="card">
+<img src="https://placehold.co/300x420?text=Blue+Lock">
+<h3>Blue Lock</h3>
+<button onclick="alert('Reader coming soon!')">Read</button>
+</div>
+
+<div class="card">
+<img src="https://placehold.co/300x420?text=Kaiju+No.+8">
+<h3>Kaiju No. 8</h3>
+<button onclick="alert('Reader coming soon!')">Read</button>
+</div>
+
+<div class="card">
+<img src="https://placehold.co/300x420?text=Spy+x+Family">
+<h3>Spy × Family</h3>
+<button onclick="alert('Reader coming soon!')">Read</button>
+</div>
+
+</div>
+
+<script>
+function searchManga(){
+let input=document.getElementById("search").value.toLowerCase();
+let cards=document.getElementsByClassName("card");
+
+for(let i=0;i<cards.length;i++){
+let title=cards[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
+
+if(title.includes(input)){
+cards[i].style.display="block";
+}else{
+cards[i].style.display="none";
+}
+}
+}
+</script>
+
+</body>
+</html>
