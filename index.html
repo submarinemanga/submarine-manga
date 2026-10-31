@@ -1,114 +1,85 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b0d12">
+<meta name="description" content="SUBMARINE MANGA — discover stories, explore your library, and keep your reading list in one place.">
 <title>SUBMARINE MANGA</title>
-
 <style>
-body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:#0d1117;
-    color:white;
-}
-header{
-    background:#0066ff;
-    padding:20px;
-    text-align:center;
-}
-input{
-    width:80%;
-    max-width:400px;
-    padding:12px;
-    border:none;
-    border-radius:8px;
-    margin-top:10px;
-}
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:20px;
-    padding:20px;
-}
-.card{
-    background:#161b22;
-    border-radius:12px;
-    padding:15px;
-    text-align:center;
-}
-.card img{
-    width:100%;
-    border-radius:10px;
-}
-button{
-    background:#00c853;
-    color:white;
-    border:none;
-    padding:10px 20px;
-    border-radius:8px;
-    cursor:pointer;
-}
-button:hover{
-    background:#00a844;
-}
+:root{--bg:#0b0d12;--panel:#131722;--panel2:#191f2c;--text:#f5f7fb;--muted:#a6afc0;--accent:#e63946;--line:#293142;--shadow:0 18px 50px #0005}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}body.light{--bg:#f4f6fa;--panel:#fff;--panel2:#edf0f6;--text:#161a22;--muted:#626d7e;--line:#dce1eb;--shadow:0 18px 50px #19243a16}
+button,input{font:inherit}button{cursor:pointer}.wrap{width:min(1180px,92%);margin:auto}.topbar{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.nav{display:flex;align-items:center;gap:20px;min-height:72px}.brand{font-weight:950;letter-spacing:1.2px;font-size:1.1rem;white-space:nowrap}.brand span{color:var(--accent)}.navlinks{display:flex;gap:18px;margin-left:auto}.navlinks button,.iconbtn{background:none;border:0;color:var(--muted);font-weight:700}.navlinks button:hover,.navlinks button.active{color:var(--text)}.iconbtn{border:1px solid var(--line);border-radius:12px;padding:9px 12px;color:var(--text)}.hero{padding:58px 0 36px;display:grid;grid-template-columns:1.3fr .7fr;gap:28px;align-items:center}.eyebrow{color:var(--accent);font-size:.78rem;font-weight:900;letter-spacing:2px;text-transform:uppercase}.hero h1{font-size:clamp(2.5rem,6vw,5.2rem);line-height:.98;letter-spacing:-2px;margin:12px 0 18px;max-width:760px}.hero h1 em{font-style:normal;color:var(--accent)}.hero p{max-width:610px;color:var(--muted);font-size:1.08rem}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.btn{border:0;border-radius:12px;padding:12px 18px;font-weight:850;background:var(--accent);color:white;box-shadow:0 8px 22px #e6394630}.btn.secondary{background:var(--panel2);color:var(--text);border:1px solid var(--line);box-shadow:none}.hero-art{min-height:300px;border-radius:28px;position:relative;overflow:hidden;background:radial-gradient(circle at 70% 20%,#ff9d4d 0,transparent 26%),linear-gradient(145deg,#252b45,#10131c 55%,#641e2b);box-shadow:var(--shadow);display:flex;align-items:end;padding:26px}.hero-art:before{content:"";position:absolute;width:210px;height:270px;border:3px solid #fff7;transform:rotate(17deg);right:14%;top:10%;border-radius:48% 48% 12% 12%;box-shadow:0 0 0 18px #fff1,0 0 0 38px #fff1}.hero-art:after{content:"SM";position:absolute;right:12%;top:24%;font-size:5.8rem;font-weight:1000;color:#fff2;transform:rotate(17deg)}.hero-art strong{position:relative;font-size:1.8rem;line-height:1.05;max-width:220px;text-transform:uppercase}.searchrow{display:flex;gap:12px;margin:10px 0 26px}.searchrow input{width:100%;background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:14px;padding:14px 16px;outline:none}.searchrow input:focus{border-color:var(--accent)}.sectionhead{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:26px 0 16px}.sectionhead h2{font-size:1.65rem;margin:0;letter-spacing:-.5px}.sectionhead p{margin:3px 0 0;color:var(--muted)}.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}.chip{border:1px solid var(--line);border-radius:999px;padding:7px 13px;background:var(--panel);color:var(--muted);font-weight:750}.chip.active{background:var(--accent);color:#fff;border-color:var(--accent)}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:transform .2s,border-color .2s;min-width:0}.card:hover{transform:translateY(-4px);border-color:#e6394680}.cover{height:190px;display:flex;align-items:end;padding:15px;position:relative;overflow:hidden;background:linear-gradient(145deg,var(--c1),var(--c2))}.cover:before{content:"";position:absolute;width:150px;height:150px;border:2px solid #ffffff55;border-radius:50%;right:-24px;top:-25px;box-shadow:0 0 0 18px #ffffff13,0 0 0 38px #ffffff0d}.cover:after{content:attr(data-mark);position:absolute;right:10px;top:8px;font-weight:1000;font-size:4.5rem;line-height:1;color:#ffffff25;letter-spacing:-5px}.cover .cover-title{position:relative;font-size:1.45rem;font-weight:1000;line-height:1.02;max-width:90%;text-transform:uppercase;text-shadow:0 2px 10px #0005}.cardbody{padding:14px}.card h3{margin:0 0 5px;font-size:1rem}.meta{font-size:.82rem;color:var(--muted);display:flex;justify-content:space-between;gap:8px}.tag{display:inline-block;font-size:.72rem;font-weight:850;background:var(--panel2);border-radius:7px;padding:3px 7px;margin-top:10px;color:var(--muted)}.cardactions{display:flex;gap:8px;margin-top:13px}.smallbtn{flex:1;border:1px solid var(--line);border-radius:9px;padding:8px 6px;background:var(--panel2);color:var(--text);font-weight:800;font-size:.84rem}.smallbtn.primary{background:var(--accent);border-color:var(--accent);color:#fff}.empty{padding:40px;text-align:center;background:var(--panel);border:1px dashed var(--line);border-radius:18px;color:var(--muted)}.notice{margin:26px 0;padding:16px 18px;border-radius:14px;background:var(--panel2);border:1px solid var(--line);color:var(--muted);font-size:.9rem}.reader{display:none;margin:28px 0;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:22px}.reader.show{display:block}.readerhead{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.reader h2{margin:0}.readerpage{max-width:720px;margin:22px auto;padding:26px;min-height:320px;display:grid;place-items:center;text-align:center;background:var(--panel2);border-radius:14px;border:1px dashed var(--line);color:var(--muted)}.readerpage strong{display:block;color:var(--text);font-size:1.4rem;margin-bottom:10px}.readercontrols{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.footer{border-top:1px solid var(--line);margin-top:60px;padding:26px 0;color:var(--muted);font-size:.88rem}.footerrow{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.hidden{display:none!important}
+@media(max-width:850px){.hero{grid-template-columns:1fr;padding-top:36px}.hero-art{min-height:220px}.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.navlinks{gap:9px}.navlinks button{font-size:.88rem}}
+@media(max-width:600px){.nav{gap:10px;min-height:64px;flex-wrap:wrap;padding:10px 0}.brand{font-size:1rem}.navlinks{order:3;width:100%;justify-content:space-between;margin:0}.navlinks button{padding:6px 0}.iconbtn{margin-left:auto;padding:7px 9px}.hero h1{letter-spacing:-1.2px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.cover{height:165px;padding:11px}.cover .cover-title{font-size:1.2rem}.cardbody{padding:11px}.meta{font-size:.75rem}.sectionhead h2{font-size:1.35rem}.hero-art{min-height:190px}.hero-art strong{font-size:1.45rem}.reader{padding:14px}.readerpage{padding:18px;min-height:260px}}
 </style>
 </head>
-
 <body>
-
-<header>
-<h1>📚 SUBMARINE MANGA</h1>
-<p>Read Manga Online</p>
-
-<input id="search" placeholder="Search manga..."
-onkeyup="searchManga()">
-</header>
-
-<div class="grid" id="mangaList">
-
-<div class="card">
-<img src="https://placehold.co/300x420?text=One+Piece">
-<h3>One Piece</h3>
-<a href="https://tcbscans.me/" target="_blank">
-    <button>Read</button>
-</a>
-</div>
-<iv class="card">
-<img src="https://placehold.co/300x420?text=Blue+Lock">
-<h3>Blue Lock</h3>
-<button onclick="alert('Reader coming soon!')">Read</button>
-</div>
-
-<div class="card">
-<img src="https://placehold.co/300x420?text=Kaiju+No.+8">
-<h3>Kaiju No. 8</h3>
-<button onclick="alert('Reader coming soon!')">Read</button>
-</div>
-
-<div class="card">
-<img src="https://placehold.co/300x420?text=Spy+x+Family">
-<h3>Spy × Family</h3>
-<button onclick="window.open('https://tcbscans.me/', '_blank')">Read</button>
-</div>
-
-</div>
-
+<header class="topbar"><div class="wrap nav">
+  <div class="brand">SUBMARINE <span>MANGA</span></div>
+  <nav class="navlinks" aria-label="Main navigation">
+    <button class="active" data-nav="home">Home</button><button data-nav="library">Library</button><button data-nav="bookmarks">My List</button>
+  </nav>
+  <button class="iconbtn" id="themeBtn" aria-label="Toggle theme">☼ Theme</button>
+</div></header>
+<main class="wrap">
+<section class="hero" id="hero">
+ <div><div class="eyebrow">Your next story starts here</div><h1>ENTER A WORLD<br>BEYOND <em>REALITY.</em></h1><p>Explore your reading library, search stories, and keep your favourites together — all in one place, built for mobile.</p><div class="actions"><button class="btn" id="exploreBtn">Explore Library ↓</button><button class="btn secondary" id="listBtn">♡ My Reading List</button></div></div>
+ <div class="hero-art" aria-label="Original abstract manga-inspired artwork"><strong>Read.<br>Discover.<br>Repeat.</strong></div>
+</section>
+<section id="librarySection">
+ <div class="sectionhead"><div><h2 id="sectionTitle">Featured stories</h2><p id="sectionSub">A starter library you can customise.</p></div></div>
+ <div class="searchrow"><input id="search" type="search" placeholder="Search titles, genres, or descriptions…" aria-label="Search library"><button class="btn" id="clearBtn">Clear</button></div>
+ <div class="filters" id="filters"><button class="chip active" data-filter="All">All</button><button class="chip" data-filter="Action">Action</button><button class="chip" data-filter="Adventure">Adventure</button><button class="chip" data-filter="Fantasy">Fantasy</button><button class="chip" data-filter="Mystery">Mystery</button><button class="chip" data-filter="Drama">Drama</button></div>
+ <div class="grid" id="cards"></div>
+ <div id="empty" class="empty hidden">No stories found. Try a different search or category.</div>
+</section>
+<section class="reader" id="reader" aria-live="polite">
+ <div class="readerhead"><div><div class="eyebrow">Reader preview</div><h2 id="readerTitle">Story</h2><div class="meta" id="readerMeta"></div></div><button class="iconbtn" id="closeReader">✕ Close</button></div>
+ <div class="readerpage"><div><strong id="readerChapter">Welcome to the reader</strong><p id="readerText">This is a ready-to-customise reading area. Add manga pages that you own or have permission to publish.</p></div></div>
+ <div class="readercontrols"><button class="btn secondary" id="prevChapter">← Previous</button><button class="btn" id="nextChapter">Next chapter →</button></div>
+ <p class="notice">This starter demo does not host or reproduce copyrighted manga pages. To publish a complete reader, add artwork you created or have permission to use.</p>
+</section>
+<div class="notice"><strong>About this starter library:</strong> The titles shown here are demo entries created for the website layout. Use the edit instructions in <code>README.txt</code> to replace them with your own stories or authorised catalogue.</div>
+</main>
+<footer class="footer"><div class="wrap footerrow"><div><strong>SUBMARINE MANGA</strong><br>Discover your next favourite story.</div><div>Made for mobile · Search · Categories · Bookmarks · Dark/light mode</div></div></footer>
 <script>
-function searchManga(){
-let input=document.getElementById("search").value.toLowerCase();
-let cards=document.getElementsByClassName("card");
-
-for(let i=0;i<cards.length;i++){
-let title=cards[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
-
-if(title.includes(input)){
-cards[i].style.display="block";
-}else{
-cards[i].style.display="none";
+const stories=[
+{id:1,title:"Crimson Horizon",genre:"Action",status:"Ongoing",chapters:12,desc:"A rookie explorer follows a mysterious signal beyond the city walls.",mark:"CH",c1:"#a51f36",c2:"#20182f"},
+{id:2,title:"Moonlit Academy",genre:"Fantasy",status:"Ongoing",chapters:8,desc:"A new student discovers the school changes after sunset.",mark:"MA",c1:"#334f9c",c2:"#171a35"},
+{id:3,title:"The Last Map",genre:"Adventure",status:"Complete",chapters:24,desc:"Two friends search for a lost place erased from every map.",mark:"LM",c1:"#c17b2b",c2:"#39243a"},
+{id:4,title:"Silent Evidence",genre:"Mystery",status:"Ongoing",chapters:6,desc:"A quiet archivist notices one detail missing from every case.",mark:"SE",c1:"#426b70",c2:"#17222e"},
+{id:5,title:"Paper Kingdom",genre:"Drama",status:"Complete",chapters:16,desc:"A family-owned bookshop becomes the heart of a changing town.",mark:"PK",c1:"#a76b86",c2:"#30233d"},
+{id:6,title:"Skybound",genre:"Action",status:"Ongoing",chapters:19,desc:"A courier dreams of crossing the floating islands above home.",mark:"SB",c1:"#287c9b",c2:"#182342"},
+{id:7,title:"Ember & Ice",genre:"Fantasy",status:"Ongoing",chapters:10,desc:"Two rivals must work together to restore a broken season.",mark:"EI",c1:"#e35c35",c2:"#283d65"},
+{id:8,title:"Midnight Signal",genre:"Mystery",status:"Complete",chapters:9,desc:"A late-night radio host receives messages from an unknown caller.",mark:"MS",c1:"#54458e",c2:"#17182a"}
+];
+let activeFilter="All", activeView="home", currentStory=null, chapter=1;
+const saved=()=>{try{return JSON.parse(localStorage.getItem("sm-bookmarks")||"[]")}catch(e){return[]}};
+const save=(ids)=>localStorage.setItem("sm-bookmarks",JSON.stringify(ids));
+const cards=document.getElementById("cards"), search=document.getElementById("search");
+function render(){
+ const q=search.value.trim().toLowerCase(), marks=saved();
+ let list=stories.filter(s=>(activeFilter==="All"||s.genre===activeFilter)&&(`${s.title} ${s.genre} ${s.desc} ${s.status}`).toLowerCase().includes(q));
+ if(activeView==="bookmarks") list=list.filter(s=>marks.includes(s.id));
+ document.getElementById("sectionTitle").textContent=activeView==="bookmarks"?"My reading list":activeView==="library"?"Explore the library":"Featured stories";
+ document.getElementById("sectionSub").textContent=activeView==="bookmarks"?"Your saved stories live on this device.":activeView==="library"?"Search and filter the starter catalogue.":"A starter library you can customise.";
+ cards.innerHTML=list.map(s=>`<article class="card"><div class="cover" style="--c1:${s.c1};--c2:${s.c2}" data-mark="${s.mark}"><div class="cover-title">${s.title}</div></div><div class="cardbody"><h3>${s.title}</h3><div class="meta"><span>${s.genre}</span><span>${s.chapters} chapters</span></div><span class="tag">${s.status}</span><p style="font-size:.86rem;color:var(--muted);margin:10px 0 0">${s.desc}</p><div class="cardactions"><button class="smallbtn primary" onclick="openReader(${s.id})">Preview</button><button class="smallbtn" onclick="toggleBookmark(${s.id})" aria-label="Toggle bookmark">${marks.includes(s.id)?"♥ Saved":"♡ Save"}</button></div></div></article>`).join("");
+ document.getElementById("empty").classList.toggle("hidden",list.length>0);
 }
-}
-}
+function toggleBookmark(id){let ids=saved();ids=ids.includes(id)?ids.filter(x=>x!==id):[...ids,id];save(ids);render()}
+function openReader(id){currentStory=stories.find(s=>s.id===id);chapter=1;document.getElementById("reader").classList.add("show");document.getElementById("readerTitle").textContent=currentStory.title;document.getElementById("readerMeta").textContent=`${currentStory.genre} · ${currentStory.status} · ${currentStory.chapters} chapters`;updateChapter();document.getElementById("reader").scrollIntoView({behavior:"smooth",block:"start"})}
+function updateChapter(){if(!currentStory)return;document.getElementById("readerChapter").textContent=`${currentStory.title} — Chapter ${chapter}`;document.getElementById("readerText").textContent=`This is a preview page for chapter ${chapter}. Replace this area with your own original pages or authorised reading material.`;document.getElementById("prevChapter").disabled=chapter<=1;document.getElementById("nextChapter").disabled=chapter>=currentStory.chapters}
+document.querySelectorAll("[data-filter]").forEach(b=>b.addEventListener("click",()=>{activeFilter=b.dataset.filter;document.querySelectorAll("[data-filter]").forEach(x=>x.classList.toggle("active",x===b));render()}));
+document.querySelectorAll("[data-nav]").forEach(b=>b.addEventListener("click",()=>{activeView=b.dataset.nav;document.querySelectorAll("[data-nav]").forEach(x=>x.classList.toggle("active",x===b));document.getElementById("hero").classList.toggle("hidden",activeView!=="home");render();document.getElementById("librarySection").scrollIntoView({behavior:"smooth"})}));
+search.addEventListener("input",render);document.getElementById("clearBtn").addEventListener("click",()=>{search.value="";activeFilter="All";document.querySelectorAll("[data-filter]").forEach(x=>x.classList.toggle("active",x.dataset.filter==="All"));render()});
+document.getElementById("exploreBtn").addEventListener("click",()=>{activeView="library";document.querySelector('[data-nav="library"]').click()});
+document.getElementById("listBtn").addEventListener("click",()=>document.querySelector('[data-nav="bookmarks"]').click());
+document.getElementById("closeReader").addEventListener("click",()=>document.getElementById("reader").classList.remove("show"));
+document.getElementById("prevChapter").addEventListener("click",()=>{if(chapter>1){chapter--;updateChapter()}});
+document.getElementById("nextChapter").addEventListener("click",()=>{if(currentStory&&chapter<currentStory.chapters){chapter++;updateChapter()}});
+document.getElementById("themeBtn").addEventListener("click",()=>{document.body.classList.toggle("light");localStorage.setItem("sm-theme",document.body.classList.contains("light")?"light":"dark")});
+if(localStorage.getItem("sm-theme")==="light")document.body.classList.add("light");
+render();
 </script>
-</body>
-</html>
+</body></html>
